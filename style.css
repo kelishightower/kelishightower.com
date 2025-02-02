@@ -1,0 +1,833 @@
+/* GOOGLE POPPIN FONTS LINK */
+
+/*Use google to look up the desired font*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* the root differes from body as we are creating varible to beused later on similarly to java*/
+:root{
+    --body-color: rgb(250,250,250);
+    --color-white: rgb(255, 255, 255);
+
+    --text-color-second: rgb(68, 68, 68);
+    --text-color-third: rgb(30, 159, 171);
+
+    --first-color: rgb(110, 87, 224);
+    --first-color-hover: rgb(40, 91, 212);
+
+    --second-color: rgb(0, 201, 255);
+    --third-color: rgb(192, 166, 49);
+    --first-shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ----- BASE -----*/
+
+/*overall boundries */
+*{
+    margin: 0;
+    padding: 0;
+    /*includes the  padding in the width and height*/
+    /*allows you to define the width and height*/
+    box-sizing: border-box;
+    /*This is us talking to the Google fonts (I think)*/
+    font-family: 'Poppins', sans-serif;
+
+}
+
+/* ----- SMOOTH SCROLL -----*/
+
+/*classes that start with html tend to be more general/ foundation to html structure*/
+/*since scrolling has to with how the structure moves it should fall under a html class*/
+html{
+    scroll-behavior: smooth;
+}
+
+/* ----- CHANGE THE SCROLL BAR DESIGN -----*/
+/*if a website has a enoguh contents to scroll this contorll the bar that appears when scrolling*/
+::-webkit-scrollbar{
+    /*how thick the scroll bar is*/
+    width: 10px;
+    /*this applies to the rounded corners of the scroll bar*/
+    border-radius: 25px;
+}
+::-webkit-scrollbar-track{
+    /*chnages the color of the scroll bar*/
+    background: #f1f1f1;
+}
+/*this is the actual internal bar you use to scroll*/
+::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 30px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #bbb;
+
+
+}
+
+/* ---##-- REUSABLE CSS ---##--*/
+
+/* ----- GLOBAL BUTTON DESIGN -----*/
+
+.btn{
+    /*boldness ammount*/
+    font-weight: 500;
+    /*makes it so that the word sit in the middle with 20 px of space on each side (but it stays within the box)*/
+    padding: 12px 20px;
+    background: #efefef;
+    /*takes default border off*/
+    border: none;
+    border-radius: 10px;
+    /*turns it into a micky mouse pointer*/
+    cursor: pointer;
+    /*how fast it expand to the specifications above*/
+    transition: .4s;
+}
+.btn>i{
+    margin-left: 10px;
+}
+.btn:hover{
+    /*chnages the background color*/
+    background: var(--second-color);
+    /*changes the text color*/
+    color: var(--color-white);
+}
+
+/* ----- GLOBAL ICONS DESIGN-----*/
+
+i{
+    font-size: 16px;
+}
+
+/* ----- BASE-----*/
+body{
+    background: var(--body-color);
+}
+.container{
+    width: 100%;
+    /*when you specify offests its offseted from it assigned seat in away vs static stays in its assinged seat*/
+    position: relative;
+}
+
+/* ----- NAVIGATION BAR-----*/
+
+
+nav{
+    /*keep sthings stationary when you start scrolling*/
+    position: fixed;
+    display: flex;
+    /*put space between each of the divs under the parent nav bar*/
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    /*like css version of double space when writng and essay*/
+    /*like the height in between each word or each "line" its jsut one word right now*/
+    line-height: 90px;
+    background: var(--body-color);
+    /*padding inline only works in two direction while padding works in 4*/
+    /*vw stands for viewport width*/
+    padding-inline: 9vw;
+    /*fades in the color and slowly brings things in to the inline constraints*/
+    /*basically it chnages everything in the ammount of time below*/
+    transition: .3s;
+    /*this controlls the stracking order. So when you scroll the nav bar always stays ontop*/
+    /*the number could be anything as long as its bigger than the ammount of elements so just make it high just in case*/
+    z-index: 100;
+}
+
+.nav-logo{
+    position: relative;
+}
+
+.nav-name{
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--text-color-third);
+}
+
+.nav-logo span{
+    /*absolute gives very independent of all other elements */
+    position: absolute;
+    top: -2px;
+    right: -15px;
+    font-size: 2em;
+    color: var(--text-color-second);
+}
+.nav-menu, .nav_menu_list {
+    /*forces all elements to fit within its container*/
+    /*come come children*/
+    display: flex;
+}
+
+.nav-menu .nav_list{
+    /*takes them bullet points away*/
+    list-style: none;
+    position: relative;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: var(--text-color-second);
+    font-weight:500;
+    /*its looking like just left to right or horizontal padding*/
+    padding-inline: 15px;
+    margin-inline: 20px;
+
+}
+/*my guess it we wont need both and it will activate on a smaller screen view*/
+.nav-menu-btn{
+    display: none;
+}
+/*i means icon*/
+.nav-menu-btn i{
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* ----- WRAPPER DESIGN-----*/
+
+/*the length of the entire webpage)*/
+.wrapper{
+    /*almost like scroll height*/
+    /*adds padding to the left AND right side so it seem like the element are closer to the center*/
+    padding-inline: 10vw;
+}
+.active-link{
+    position: relative;
+    color: var(--first-color);
+    transition: .3;
+}
+.active-link::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 5px;
+    background: var(--first-color);
+    border-radius: 50%;
+}
+/* ----- FEATURED BOX ----*/
+
+.featured-box{
+    position: relative;
+    display: flex;
+    height: 100vh;
+    min-height: 700px;
+}
+
+/* ----- FEATURED TEXT BOX -----*/
+
+
+.featured-text{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    min-height: 80vh;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 20px;
+}
+
+.featured-text-card span{
+    background: var(--third-color);
+    color: var(--color-white);
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+.featured-name{
+    font-size: 50px;
+    font-weight: 600;
+    color: var(--text-color-second);
+    /*applied margins to the top and bogttom of the element like reverse padding inline*/
+    margin-block: 20px;
+}
+.typedText{
+    text-transform: capitalize;
+    color: var(--text-color-third)
+}
+.featured-text-info{
+    font-size: 15px;
+    margin-bottom: 30px;
+    color: var(--text-color-second);
+}
+.featured-text-btn{
+    display: flex;
+    /*how much space is in between the two buttons*/
+    gap: 20px;
+}
+/*> = child combinator */
+.featured-text-btn>.blue-btn{
+    background: var(--first-color);
+    color: var(--color-white);
+
+}
+.featured-text-btn>.blue-btn:hover{
+    background: var(--first-color-hover);
+}
+.social_icons{
+    display:flex;
+    margin-top: 5rem;
+    gap: 20px;
+    text-decoration: none;
+}
+.social_icons a{
+    color: inherit;
+    text-decoration: none;
+}
+.featured-image{
+    order: 1;
+    justify-content: center;
+    min-height: 150px;
+    width: 100%;
+    margin-top: 65px;
+}
+.image, .image img{
+    width: 150px;
+    height: 150px;
+}
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    /*creates them to be circles*/
+    border-radius: 50%;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+.icon:hover{
+    color: var(--first-color);
+}
+/* ----- FEATURED IMAGE BOX -----*/
+
+.featured-image{
+    display: flex;
+    justify-content: right;
+    align-content: center;
+    min-height: 80vh;
+    width: 50%;
+}
+.image{
+    margin: auto 0;
+    height: 380px;
+    width: 380px;
+    border-radius: 55% 45% 55% 45%;
+    overflow: hidden;
+    /*it will take the info from imgFloat from below and completed the rotation in 5 seconds over and over again*/
+    animation: imgFloat 5s ease-in-out infinite;
+}
+
+.image img{
+    width: 380px;
+    height: 380px;
+    /*makes it so the image just takes up the whole area of the container*/
+    object-fit: cover;
+    
+}
+/*talks to the animation declared eariler and specifces the chnages it should make by the halfway point*/
+/*animation know to revert back to 0 to it looks as if it was bouncing back and forth*/
+
+@keyframes imgFloat {
+    50%{
+        transform: translateY(10px);
+        border-radius: 45% 55% 45% 55%;
+    }
+}
+
+.scroll-btn{
+    /*SIDE NOTE: all the postion adjustments may be a bit overkill for how small the btn element is
+    just the translation should be emough*/
+    position: absolute;
+    /*puts it at the very bottom of the screen*/
+    bottom: 0;
+    /*centers the button in the middle by placing it 50 percent of the way horizontally*/
+    left: 50%;
+    /*look more into that*/
+    /*good for fine tuning*/
+    translate: -50%;
+    display: flex;
+    /*the first potion adjustments refer to its relation to the parent element (featured box in this case refer to html)
+     the justify referes to its potion within its self */
+    /* best for when you have multiple child elements*/
+    justify-content: center;
+    /*best weh you want to align things vertically */
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    /*this also seems a bit unessisary*/
+    gap: 5px;
+    text-decoration: none;
+    color: var(--text-color-second);
+    background: var(--color-white);
+    border-radius: 30px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+
+}
+/*deals with the icon attatch to it*/
+.scroll-btn i{
+    font-size: 15px;
+}
+/* ----- MAIN BOX -----*/
+
+.section{
+    padding-block: 5em;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 50px;
+}
+.col{
+    display: flex;
+    width: 50%;
+}
+
+/* ----- REUSABLE CSS -----*/
+.top-header{
+    text-align: center;
+    /*em means its relativity to the parent element*/
+    /*5em would mean 5 times the parent element*/
+    margin-bottom: 5em;
+}
+.top-header h1{
+    font-weight: 600;
+    color: var(--text-color-second);
+    margin-bottom: 10px;
+}
+.top-header span{
+    color: #999;
+}
+h3{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-color-second);
+    margin-bottom: 15px;
+}
+/* ----- ABOUT INFO -----*/
+.about-info{
+    position: relative;
+    /*flex layouts are automatically displayed in a row */
+    /*and tried to keep it within that row */
+    display: flex;
+    align-items: center;
+    /*since its automatically wants it to lay horizontially
+    we have to tell it to stack in a colum shape instead*/
+    flex-direction: column;
+    /*1- how much space it above second is how much space is underneath*/
+    padding-block: 30px 70px;
+    /*these may seem fixed but the best part of flex box is that is srink the element to try and keep these things to be true*/
+    padding-inline: 20px;
+    /*100 of the col element which is 50% of the row and the row takes up the whole section width wise*/
+    width: 100%;
+    background: var(--color-white);
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    border-radius: 20px;
+
+}
+.about-info p{
+    text-align: center;
+    font-size: 15px;
+    color: #777;
+}
+
+.about-btn button{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background: var(--first-color);
+    color: var(--color-white);
+    border-radius: 30px;
+}
+.about-btn button:hover{
+    background: var(--first-color-hover);
+}
+
+/* ----- ABOUT/SKILLS BOX -----*/
+
+.skills-box{
+    /*around the whole skills box nothing to do with children*/
+    margin: 10px;
+}
+.skills-header{
+    margin-bottom: 30px;
+}
+.skills-list{
+    display: flex;
+    /*keeps them so that they have multiple lines for the list
+    do not try and line up each listed item*/
+    flex-wrap: wrap;
+    /*space between list elements*/
+    gap: 5px;
+}
+.skills-list span{
+    font-size: 14px;
+    background: var(--first-color);
+    color: var(--color-white);
+    padding: 2px 10px;
+    border-radius: 12px;
+}
+/* ----- PROJECTS BOX -----*/
+/*not the boxes themselves the overall box they sit in*/
+/*how to boxes will sit/be aranged */
+.project-container{
+    display: flex;
+    width: 100%;
+    /*allows it to take up the WHOLE space without it it willlook like its not at 100% width*/
+    justify-content: space-between;
+    gap: 20px;
+    /*not trynna be squished*/
+    flex-wrap: wrap;
+}
+/*now on the actual boxes themselves*/
+.project-box{
+    position: relative;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*flex-direction: column;*/
+    /*spliting it into thrids or how ever many boxes you have*/
+    width: 30%;
+    height: 250px;
+    background: var(--color-white);
+    border-radius: 20px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    /*if its to much we just finna cut you off*/
+    overflow: hidden;
+}
+/*.project-box>i{*/
+/*    font-size: 50px;*/
+/*    color: #00B5E7;*/
+/*    margin-bottom: 15px;*/
+/*}*/
+/*.project-box label{*/
+/*    font-size: 15px;*/
+/*    color: #777;*/
+/*}*/
+.project-box a:hover{
+    cursor: pointer;
+    background: var(--second-color);
+    transition: .6s;
+}
+
+/*.project-box:hover.project-box i, .project-box:hover.project-box>h3, .project-box:hover.project-box>label{*/
+/*    color: var(--color-white);*/
+/*}*/
+.project-box:hover a i,
+.project-box:hover a h3,
+.project-box:hover a label {
+    color: var(--color-white);
+}
+/*these have to be spcifed because the contens are now wraped in a a tag so theres another level of parent child happening*/
+.project-box a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the current color */
+    height: 100%; /* Make sure the anchor not the box takes up full height */
+    width: 100%; /* Make sure the anchor not the box  takes up full width */
+    /*Gotta have this if you want it to look clean when you take the curor off not just when clciked*/
+    transition: 0.6s;
+}
+
+/*.project-box a:hover {*/
+/*    color: var(--color-white); !* Maintain hover effect *!*/
+/*}*/
+.project-box a i {
+    font-size: 50px; /* Adjust the icon size */
+    margin-bottom: 15px; /* Space below the icon */
+    color: #00B5E7;
+}
+
+.project-box a h3 {
+    font-size: 20px; /* Adjust heading size */
+    margin: 5px 0; /* Adjust spacing above and below */
+}
+
+.project-box a label {
+    font-size: 15px; /* Ensure label size remains */
+    color: #777; /* Keep label color */
+}
+
+
+
+
+
+/* ----- CONTACT BOX -----*/
+.contact-info{
+    /* absolute would cuase it to overlap.... dominate in its postion on the web screen*/
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    width: 100%;
+    height: 315px;
+    background: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.contact-info>h2{
+    color: var(--second-color);
+    margin-bottom: 20px;
+}
+.contact-info>p{
+    display: flex;
+    align-items: center;
+    color: var(--text-color-second);
+    gap: 10px;
+    margin-block: 5px;
+    /*I had to add this as the original font size allowed for overlap*/
+    font-size: 14px;
+}
+.contact-info p>i{
+    font-size: 18px;
+}
+/* ----- CONTACT FORM -----*/
+.form-control{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.form-inputs{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+.input-field{
+    /*its 50% cause theres 2 */
+    width: 50%;
+    height: 55px;
+    background: transparent;
+    border: 2px solid #AAA;
+    border-radius: 10px;
+    padding-inline: 20px;
+    outline: none;
+}
+textarea{
+    width: 100%;
+    height: 250px;
+    background: transparent;
+    border: 2px solid #AAA;
+    border-radius: 10px;
+    padding: 15px 20px;
+    outline: none;
+    resize: none;
+}
+.form-button>.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--second-color);
+    color: var(--color-white);
+}
+.form-button>.btn:hover{
+    background: #00B5E7;
+}
+.form-button i{
+    font-size: 18px;
+}
+
+/* ----- FOOTER BOX -----*/
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+    background: #F8F8F8;
+    padding-block: 40px 60px;
+}
+.top-footer p{
+    font-size: 25px;
+    font-weight: 600;
+}
+.middle-footer .footer-menu{
+    display: flex;
+}
+.footer_menu_list{
+    list-style: none;
+}
+.footer_menu_list a{
+    text-decoration: none;
+    color: var(--text-color-second);
+    font-weight: 500;
+    margin-inline: 20px;
+}
+.footer-social-icons{
+    display: flex;
+    gap: 30px;
+}
+.footer-social-icons a{
+    text-decoration: none;
+    color: var(--text-color-second);
+}
+
+.bottom-footer{
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* ----- MEDIA QUERY == 900px / RESPONSIVE -----*/
+/*makes the featured box responsive (the one with my picture)*/
+/*max width meaning this and smaller*/
+/*untill specifed other wise like the the media below at 900 would override the code */
+@media only screen and (max-width: 1024px){
+    .featured-text{
+        padding: 0;
+    }
+    /*handles the image class and the actual image within it*/
+    .image, .image img {
+        width: 320px;
+        height: 320px;
+
+    }
+}
+
+
+
+/*basically when or if these condtions are met don't show it anymore*/
+/*In this case that the download cv button since its in the nav-button class*/
+@media only screen and (max-width: 900px) {
+    .nav-button{
+        display: none;
+    }
+    /*Talks to the JS file to say when this size preform the responcsive class refrenced */
+    .nav-menu.responsive{
+        left: 0;
+
+    }
+    /*after a certin point its just fina stay where its at on the screen (will overlap stuff)*/
+    .nav-menu {
+        /*if position is fixed you need to specifc where it is fixed to with demensions*/
+        position: fixed;
+        /*how far down from the top of the screen*/
+        top: 80px;
+        /*no left offest*/
+        /*the direction the list would swoop in from*/
+        left: -100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        width: 100%;
+        /*self expanitory*/
+        min-height: 450px;
+        /*How much of the screen 1vh = 1%*/
+        height:90vh;
+        transition: .3s;
+    }
+    .nav_menu_list{
+        /*stack them vertically (into colums)*/
+        flex-direction: column;
+    }
+    .nav-menu-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /*when screen is little stack the element not next to each other */
+    .featured-box{
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+    }
+    .featured-text{
+        width: 100%;
+        order: 2;
+        justify-content: center;
+        align-content: flex-start;
+        min-height: 60vh;
+    }
+    .social_icons{
+        /*space sperating it from the hire me button*/
+        margin-top: 2em;
+    }
+    .featured-image{
+        /*since we re-arranged the elements to be in a collums order
+        we now have to specifc which elements come first in the stack*/
+        order: 1;
+        justify-content: center;
+        min-height: 150px;
+        width: 100%;
+        margin-top: 65px;
+    }
+    .image, .image img {
+        width: 150px;
+        height: 150px;
+
+    }
+    .row{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+    }
+    .col{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .about-info, .contact-info{
+        width: 100%;
+    }
+    .project-container{
+        justify-content: center;
+    }
+    .project-box{
+        /*make one box take up MUCH more of thew screen so that it forces it to stack upon one another*/
+        width: 80%;
+    }
+
+}
+@media only screen and (max-width: 540px){
+    .featured-name{
+        font-size: 40px;
+    }
+    .project-box{
+        width: 100%;
+    }
+    .form-inputs{
+        flex-direction: column;
+    }
+    .input-field{
+        width: 100%;
+    }
+}
+
+/* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING -----*/
+
+
+
+
+/* ----- TYPING EFFECFT -----*/
+
+
+
+
+/* ----- ## --ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING --##-----*/
+
+
+
+/* ----- HOME -----*/
+
+
+
+/* ----- PROJECT BOX-----*/
