@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--  this helps us create a responsive website-->
+<!--  Viewport simply means what can be seen on the webpage/screen-->
+<!--  width... just means that anytime we refer to width its refering to the current size of the screen-->
+<!--  1.0 makes it so no intial zooming happens which can be an issue with responsive websites-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Below is the style sheet to our contact icons-->
+
+<!--------------UNICONS--------------->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+<!--------------CSS file--------------->
+<!--Linking my css style sheet from my local file-->
+    <link rel="stylesheet" href="style.css">
+
+
+<!-------------FAV ICON-------------->
+<!--fav icon is one of the drop-down when link is partially type into the IDE-->
+<!--this is the little icon/picture that appears next to the website title in the browser/ on a tab-->
+    <link rel="shortcut icon" href="../images/faviconK.png" type="image/x-icon">
+
+
+    <title>Kelis Hightower</title>
+</head>
+<body>
+
+    <div class="container">
+
+
+<!-----------HEADER-------------->
+
+<!--defines the whole nav bar section-->
+    <nav id="header">
+        <div class="nav-logo">
+<!--this holds the contents of this patcular section of the nav bar-->
+            <p class="nav-name">Kelis</p>
+<!--        this helps us sperate parts of the text so we can manipulate different parts of it-->
+            <span>.</span>
+        </div>
+<!--    class: allows us to attch js and css attributes to it id: helps us idetify this paticular section-->
+<!--    almost like making the div a variable using the id name-->
+        <div class="nav-menu" id="myNavMenu">
+            <ul class="nav_menu_list">
+                <li class="nav_list">
+<!--                each of the a first creats a internal link, assigns class, displays the text (like a button)-->
+                    <a href="#home" class="nav-link active-link">Home</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#about" class="nav-link">About</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#projects" class="nav-link">Highligts</a>
+                    <div class="circle"></div>
+                </li>
+<!--                <li class="nav_list">-->
+<!--                    <a href="#experience" class="nav-link">Experience</a>-->
+<!--                    <div class="circle"></div>-->
+<!--                </li>-->
+                <li class="nav_list">
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <div class="circle"></div>
+                </li>
+
+            </ul>
+        </div>
+
+<!--------------Buttons-------------->
+        <div class="nav-button">
+<!--        the i class... came from the UNICONS copy of source code-->
+            <button class="btn">Download CV<i class="uil uil-file-alt"></i></button>
+        </div>
+        <div class ="nav-menu-btn">
+<!--        onclick... hints at a JS function "calling a function"-->
+            <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+        </div>
+    </nav>
+
+<!-----------MAIN-------------->
+<!--  Everything is encapsulated within my wrapper (which contains be whole webpage)      -->
+    <main class="wrapper">
+        <!-----------FEATURED BOX------------->
+        <section class="featured-box" id="home">
+            <div class="featured-text">
+                <div class="featured-text-card">
+                    <span>Kelis Hightower</span>
+                </div>
+                <div class="featured-name">
+                    <p>I'm <span class="typedText"></span></p>
+                </div>
+                <div class="featured-text-info">
+                    <p> I’m an Informatics student at the University of Washington passionate about using
+                        technology for social change. I love exploring new challenges in tech and finding innovative
+                        ways to uplift underrepresented communities. With a strong interest in mobile app development and
+                        user-centered design,
+                        I’m always looking for opportunities to learn, grow, and create impactful solutions. </p>
+                </div>
+                <div class="featured-text-btn">
+<!--                    <button class="btn blue-btn">Hire Me</button>-->
+                    <button class="btn blue-btn">Download CV<i class="uil uil-file-alt"></i></button>
+                </div>
+                <div class="social_icons">
+                    <a href="https://www.instagram.com/kelis_hightower/" target="_blank" rel="noopener noreferrer">
+<!--                        <div class="icon"><i class="uil uil-instagram"></i></div>-->
+                    </a>
+                    <a href="https://bsky.app/profile/kelishightower.bsky.social" target="_blank" rel="noopener noreferrer">
+                        <div class="icon"><i class="uil uil-user"></i></div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kelis-hightower-a2018b327/" target="_blank" rel="noopener noreferrer">
+                        <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+                    </a>
+                    <a href="https://github.com/kelishightower" target="_blank" rel="noopener noreferrer">
+                        <div class="icon"><i class="uil uil-github-alt"></i></div>
+                    </a>
+<!--                    <div class="icon"><i class="uil uil-linkedin-alt"></i></div>-->
+<!--                    <div class="icon"><i class="uil uil-github-alt"></i></div>-->
+                </div>
+            </div>
+            <div class="featured-image">
+                <div class="image">
+                    <img src="../images/seniorphoto1 (1).jpeg"> <!--height="917" width="856" alt=""-->
+                </div>
+            </div>
+            <div class="scroll-icon-box">
+                <a href="#about" class="scroll-btn">
+                    <i class="uil uil-mouse-alt">
+                        Scroll Down
+                    </i>
+                </a>
+            </div>
+        </section>
+<!--       *** establishing a new section...-->
+        <!-----------FEATURED BOX------------->
+        <section class="section" id="about">
+            <div class="top-header">
+                <h1>About Me</h1>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="about-info">
+                        <h3>My introduction</h3>
+                        <p>I’m developing my skills in Java, Python, and user-centered design through
+                            coursework and hands-on projects, with a focus on
+                            mobile app development and data-driven solutions.</p>
+                        <div class="about-btn">
+<!--                            <button class="btn">Download CV <i class="uil uil-import"></i></button>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="skills-box">
+                        <div class="skills-header">
+                            <h3>Tech Skills</h3>
+                        </div>
+                        <div class="skills-list">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>Java</span>
+                            <span>Python</span>
+                            <span>Figma</span>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                    <div class="skills-box">
+                        <div class="skills-header">
+                            <h3>Activities</h3>
+                        </div>
+                        <div class="skills-list">
+                            <span>Black Student Union</span>
+                            <span>Women in Informatics</span>
+                            <span>Sisterhood Initiative</span>
+                        </div>
+                    </div>
+                    <div class="skills-box">
+                        <div class="skills-header">
+                            <h3>Soft Skills</h3>
+                        </div>
+                        <div class="skills-list">
+                            <span>Leadership</span>
+                            <span>Social Work</span>
+                            <span>Public Speaking</span>
+<!--                            <span>Chess</span>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-----------FUTURE PROJECT SECTION------------->
+
+        <section class="section" id="projects">
+            <div class="top-header">
+                <h1>What I'm Up to</h1>
+            </div>
+<!--            where all 3 boxes will live-->
+            <div class="project-container ">
+<!--                Specfic containers-->
+                <div class="project-box">
+                    <a href="https://github.com/kelishightower" target="_blank">
+                        <i class="uil uil-arrow"></i>
+                            <h3>GitHub</h3>
+                        <label>Current porjects</label>
+                    </a>
+                </div>
+                <div class="project-box">
+                    <a href="https://ischool.uw.edu/programs/informatics" target="_blank">
+                        <i class="uil uil-book"></i>
+                        <h3>Studying</h3>
+                        <label>UW, Informatics</label>
+                    </a>
+                </div>
+                <div class="project-box">
+                    <a href="https://www.instagram.com/keliskooks/?hl=en" target="_blank">
+                        <i class="uil uil-restaurant"></i>
+                        <h3>Cooking Account</h3>
+                        <label>@keliskooks</label>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+<!--        &lt;!&ndash;-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;TIMELINE/JOURNEY-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--        <section class="section" id="Experience">-->
+<!--            <div class="top-header">-->
+<!--                <h1>My Journey</h1>-->
+<!--            </div>-->
+
+<!--        </section>-->
+        <!-----------CONTACT BOX------------->
+        <section class="section" id="contact">
+            <div class="top-header">
+                <h1>Get in Touch</h1>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="contact-info">
+                        <h2>Find Me <i class="uil uil-arrow-down"></i></h2>
+                        <p><i class="uil uil-envelope"></i>Email: kelisshightower@gmail.com</p>
+<!--                        <p><i class="uil uil-phone"></i>Phone: +000 000 0000</p>-->
+                    </div>
+                </div>
+                <div class="col">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="form-control">
+                        <div class="form-inputs">
+                            <input type="hidden" name="access_key" value="2f3c68a5-3c0a-48bb-9425-c28f0c5ac7ba">
+<!--                        Creates a text box that you can type in-->
+<!--                        Name = the greyed out text that shows user what to type in-->
+                            <input type="text" name = "name" class="input-field" placeholder="Name">
+                            <input type="text" name = "email" class="input-field" placeholder="Email">
+                        </div>
+                        <div class="text-area">
+                            <textarea name = "message" placeholder="Message"></textarea>
+                        </div>
+                        <div class="form-button">
+                            <button type="submit" class="btn">Send <i class="uil uil-message"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+<!-----------FOOTER-------------->
+        <footer>
+            <div class="top-footer">
+                <p>Kelis Hightower</p>
+            </div>
+            <div class="middle-footer">
+                <ul class="footer-menu">
+                    <li class="footer_menu_list">
+                        <a href="#home">Home</a>
+                    </li>
+                    <li class="footer_menu_list">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="footer_menu_list">
+                        <a href="#projects">Projects</a>
+                    </li>
+                    <li class="footer_menu_list">
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="footer-social-icons">
+<!--                <div class="icon"><i class="uil uil-instagram"></i></div>-->
+<!--                <div class="icon"><i class="uil uil-twitter-alt"></i></div>-->
+                <a href="https://bsky.app/profile/kelishightower.bsky.social" target="_blank" rel="noopener noreferrer">
+                    <div class="icon"><i class="uil uil-user"></i></div>
+                </a>
+                <a href="https://www.linkedin.com/in/kelis-hightower-a2018b327/" target="_blank" rel="noopener noreferrer">
+                    <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+                </a>
+                <a href="https://github.com/kelishightower" target="_blank" rel="noopener noreferrer">
+                    <div class="icon"><i class="uil uil-github-alt"></i></div>
+                </a>
+<!--                <div class="icon"><i class="uil uil-linkedin-alt"></i></div>-->
+<!--                <div class="icon"><i class="uil uil-github-alt"></i></div>-->
+            </div>
+            <div class="bottom-footer">
+                <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Kelis Hightower</a> - All rights reserved</p>
+            </div>
+
+        </footer>
+   </div>
+<!--------------TYPES JS LINK -------------->
+<!-- This is using somone elses soruce code to create the typing feature associated under my name-->
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+
+
+
+<!--------------SCROLL REVEAL JS LINK--------------->
+<!--links us to the scroll reveal feature to allow for the scrolling animation-->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+
+<!-------------MAIN JS-------------->
+<!--why at bottom? the browser cna downlaod and render the CSS stuff first to wait for the JS to load-->
+<script src="script.js"></script>
+
+</body>
+</html>
