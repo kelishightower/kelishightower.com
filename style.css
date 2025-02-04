@@ -811,6 +811,69 @@ footer{
         width: 100%;
     }
 }
+@media only screen and (max-width: 400px) {
+    .contact-info {
+        text-align: center; /* Ensure text is centered properly */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px; /* Adjust spacing */
+        width: 100%;
+    }
+
+    .contact-info h2 {
+        font-size: 18px; /* Reduce size if needed */
+        margin-bottom: 10px;
+    }
+
+    .contact-info p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px; /* Make sure text fits nicely */
+        gap: 5px; /* Ensure spacing between icon and text */
+        width: 100%;
+        flex-wrap: wrap; /* Prevent long email from forcing a shift */
+    }
+    .featured-box {
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: left;
+        height: auto; /* Adjust height to prevent overflow */
+        padding-top: 100px;
+    }
+    .contact-info p>i{
+        display: none;
+    }
+
+    .featured-text {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px; /* Reduce text size for smaller screens */
+    }
+
+    .featured-name {
+        font-size: 32px; /* Reduce main title size */
+    }
+
+    .featured-text-info {
+        font-size: 13px; /* Reduce paragraph size to prevent overlap */
+        margin-bottom: 15px;
+    }
+
+    .featured-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px; /* Add spacing below the image */
+    }
+
+    .image, .image img {
+        width: 150px; /* Make image smaller */
+        height: 150px;
+    }
+}
 
 /* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING -----*/
 
