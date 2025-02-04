@@ -873,6 +873,9 @@ footer{
         width: 150px; /* Make image smaller */
         height: 150px;
     }
+    .scroll-btn{
+        display: none;
+    }
 }
 
 /* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING -----*/
