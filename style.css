@@ -559,6 +559,116 @@ h3{
     color: #777; /* Keep label color */
 }
 
+/* ----- PROJECT CARDS -----*/
+.project-links-bar{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+.project-cards{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    align-items: stretch;
+}
+.project-links{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    align-items: stretch;
+}
+.project-links h2{
+    font-size: 20px;
+    color: var(--second-color);
+    margin-bottom: 8px;
+    grid-column: 1 / -1;
+}
+.project-link-card{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 18px;
+    background: var(--color-white);
+    border-radius: 16px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.4s, background 0.4s, color 0.4s;
+    width: 100%;
+}
+.project-link-cta{
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--first-color);
+}
+.project-link-card:hover{
+    transform: translateY(-4px);
+    background: var(--second-color);
+    color: var(--color-white);
+}
+.project-link-card:hover .project-link-cta{
+    color: var(--color-white);
+}
+.project-card{
+    background: var(--color-white);
+    border-radius: 20px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    overflow: hidden;
+    min-width: 0;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+.project-card-link{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+.project-card-image{
+    position: relative;
+    padding-top: 60%;
+    overflow: hidden;
+    background: #f4f4f4;
+}
+.project-card-image img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.project-card-body{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px 20px 22px;
+}
+.project-card-body h3{
+    font-size: 20px;
+    color: var(--second-color);
+}
+.project-card-body p{
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-color-second);
+    word-break: break-word;
+}
+.project-card-cta{
+    margin-top: auto;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--first-color);
+}
+.project-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 28px rgba(0, 0, 0, 0.12);
+}
+.project-card:hover .project-card-cta{
+    color: var(--second-color);
+}
+
 
 
 
@@ -795,7 +905,28 @@ footer{
         /*make one box take up MUCH more of thew screen so that it forces it to stack upon one another*/
         width: 80%;
     }
+    .project-links{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+    .project-cards{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .project-card-body h3{
+        font-size: 18px;
+    }
+    .project-card-body p{
+        font-size: 13px;
+    }
 
+}
+@media only screen and (max-width: 640px){
+    .project-links{
+        grid-template-columns: 1fr;
+    }
+    .project-cards{
+        grid-template-columns: 1fr;
+    }
 }
 @media only screen and (max-width: 540px){
     .featured-name{
@@ -803,6 +934,22 @@ footer{
     }
     .project-box{
         width: 100%;
+    }
+    .project-cards{
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .project-links{
+        grid-template-columns: 1fr;
+    }
+    .project-card-body{
+        padding: 16px 16px 20px;
+    }
+    .project-card-body h3{
+        font-size: 17px;
+    }
+    .project-card-body p{
+        font-size: 12px;
     }
     .form-inputs{
         flex-direction: column;
