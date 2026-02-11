@@ -842,11 +842,28 @@ footer{
         min-height: 450px;
         /*How much of the screen 1vh = 1%*/
         height:90vh;
-        transition: .3s;
+        transition: .45s ease;
     }
     .nav_menu_list{
         /*stack them vertically (into colums)*/
         flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .nav_list{
+        display: flex;
+        align-items: center;
+    }
+    .nav-menu.responsive .nav-link{
+        margin-inline: 0;
+        padding-inline: 0;
+        padding-left: 18px;
+    }
+    .nav-menu.responsive .active-link::after{
+        left: 6px;
+        top: 50%;
+        bottom: auto;
+        transform: translate(-50%, -50%);
     }
     .nav-menu-btn{
         display: flex;
@@ -858,6 +875,7 @@ footer{
         flex-direction: column;
         justify-content: center;
         height: 100vh;
+        padding-top: 90px;
     }
     .featured-text{
         width: 100%;

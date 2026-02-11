@@ -147,6 +147,16 @@ window.addEventListener('scroll', scrollActive)
 
 /* ----- NAVIGATION BAR FUNCTION-----*/
 
+const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+        const menuBtn = document.getElementById("myNavMenu");
+        if (menuBtn.classList.contains('responsive')) {
+            menuBtn.classList.remove('responsive');
+        }
+    });
+});
+
 
 
 
