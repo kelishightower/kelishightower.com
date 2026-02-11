@@ -932,6 +932,12 @@ footer{
     .featured-name{
         font-size: 40px;
     }
+    .featured-image{
+        display: none;
+    }
+    .scroll-btn{
+        display: none;
+    }
     .project-box{
         width: 100%;
     }
