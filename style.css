@@ -673,8 +673,8 @@ h3{
 }
 .project-card-spotlight-link{
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    min-height: min(78vh, 720px);
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    min-height: min(74vh, 680px);
 }
 .project-card-spotlight-image{
     padding-top: 0;
@@ -686,8 +686,13 @@ h3{
 }
 .project-card-spotlight-body{
     justify-content: center;
-    padding: 42px;
-    gap: 16px;
+    padding: 48px 52px;
+    gap: 18px;
+}
+.project-card-spotlight-copy{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
 .project-spotlight-tag{
     width: fit-content;
@@ -704,9 +709,12 @@ h3{
     font-size: 34px;
     margin-bottom: 0;
 }
-.project-card-spotlight-body p{
+.project-card-spotlight-copy p{
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.85;
+}
+.project-card-spotlight-body p + p{
+    margin-top: 6px;
 }
 
 
@@ -972,15 +980,15 @@ footer{
         min-height: auto;
     }
     .project-card-spotlight-image{
-        min-height: 320px;
+        min-height: 300px;
     }
     .project-card-spotlight-body{
-        padding: 28px;
+        padding: 30px 32px;
     }
     .project-card-spotlight-body h3{
         font-size: 28px;
     }
-    .project-card-spotlight-body p{
+    .project-card-spotlight-copy p{
         font-size: 15px;
     }
     .project-cards{
@@ -1002,7 +1010,7 @@ footer{
         grid-template-columns: 1fr;
     }
     .project-card-spotlight-image{
-        min-height: 260px;
+        min-height: 240px;
     }
 }
 @media only screen and (max-width: 540px){
@@ -1035,7 +1043,10 @@ footer{
     .project-card-spotlight-body h3{
         font-size: 24px;
     }
-    .project-card-spotlight-body p{
+    .project-card-spotlight-copy{
+        gap: 12px;
+    }
+    .project-card-spotlight-copy p{
         font-size: 14px;
         line-height: 1.7;
     }
