@@ -1,17 +1,21 @@
 /* ----- NAVIGATION BAR FUNCTION-----*/
-function myMenuFunction(){
-    var menuBtn = document.getElementById("myNavMenu");
+const navHeader = document.getElementById("header");
+const navToggle = document.getElementById("navToggle");
 
-    // if the classes name is nav-menu then go ahead and tack on the word responsive to the class name so...
-    //it now has a new class that allows it to be responsive in some way
-    // if it dosen't match then revert back to the OG nav-menu class name
-    //I think overall its desciding what css properties to use (depending on screen size) which we will establish later?
-    if(menuBtn.className === "nav-menu"){
-        menuBtn.className += " responsive";
-    } else {
-        menuBtn.className = "nav-menu"
-    }
+function myMenuFunction(){
+    const isExpanded = navHeader.classList.toggle("nav-expanded");
+    navToggle.setAttribute("aria-expanded", String(isExpanded));
+    navToggle.setAttribute("aria-label", isExpanded ? "Collapse navigation" : "Expand navigation");
+    return isExpanded;
 }
+
+function closeMenu(){
+    navHeader.classList.remove("nav-expanded");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "Expand navigation");
+}
+
+navToggle.addEventListener("click", myMenuFunction);
 /* ----- NAV BAR SHADOW WHILE SCROLLING-----*/
 
 
@@ -19,11 +23,6 @@ window.onscroll = function() {headerShadow ()};
 
 // Creates a function called headerShadow
 function headerShadow(){
-    // declared a new var titled navHeader
-    // Goes and finds the HTML element with the name "header"
-    // By making it a const the variable cannot be reseasigned only modified
-    const navHeader =document.getElementById("header");
-
     // if the postion on the web page in the vertical sense
     // the two different types are for various web browsers
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -31,15 +30,12 @@ function headerShadow(){
         // second 1 = ammount of vertial shaddow
         // 6 = the blur radius of the shadow
         // The following is the color of the shaddow
-        navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)";
+        navHeader.style.boxShadow = "0 14px 36px rgba(0, 0, 0, 0.08)";
         // .style allows JS to modify CSS stuff directly
-        navHeader.style.height = "70px";
-        navHeader.style.lineHeight = "70px";
+        navHeader.style.height = "64px";
     } else{
         navHeader.style.boxShadow = "none";
-        navHeader.style.height = "90px";
-        // spacing between text
-        navHeader.style.lineHeight= "90px";
+        navHeader.style.height = window.innerWidth <= 900 ? "64px" : "72px";
 
     }
 
@@ -104,6 +100,8 @@ const srRight = ScrollReveal({
 
 sr.reveal('.about-info',{delay: 100})
 sr.reveal('.contact-info',{delay: 100})
+sr.reveal('.service-card',{interval: 120})
+sr.reveal('.skills-strip',{delay: 100})
 
 /* -----  ABOUT SKILLS & FORM BOX-----*/
 const srLeft = ScrollReveal({
@@ -133,12 +131,17 @@ function scrollActive() {
         const sectionHeight = current.offsetHeight,
             sectionTop = current.offsetTop - 50,
             sectionId = current.getAttribute('id')
+        const navLink = document.querySelector('.nav-menu a[href*=' + sectionId +']');
+
+        if (!navLink) {
+            return;
+        }
 
         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav-menu a[href*=' + sectionId +']').classList.add('active-link')
+            navLink.classList.add('active-link')
         } else {
 
-            document.querySelector('.nav-menu a[href*=' + sectionId +']').classList.remove('active-link')
+            navLink.classList.remove('active-link')
         }
     })
 }
@@ -150,12 +153,24 @@ window.addEventListener('scroll', scrollActive)
 const navLinks = document.querySelectorAll('.nav-menu .nav-link');
 navLinks.forEach((link) => {
     link.addEventListener('click', () => {
-        const menuBtn = document.getElementById("myNavMenu");
-        if (menuBtn.classList.contains('responsive')) {
-            menuBtn.classList.remove('responsive');
-        }
+        closeMenu();
     });
 });
+
+document.addEventListener('click', (event) => {
+    if (!navHeader.contains(event.target)) {
+        closeMenu();
+    }
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeMenu();
+    }
+});
+
+window.addEventListener('resize', headerShadow);
+headerShadow();
 
 
 
