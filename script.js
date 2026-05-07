@@ -169,7 +169,14 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-window.addEventListener('resize', headerShadow);
+function handleResize(){
+    if (window.innerWidth > 900) {
+        closeMenu();
+    }
+    headerShadow();
+}
+
+window.addEventListener('resize', handleResize);
 headerShadow();
 
 
